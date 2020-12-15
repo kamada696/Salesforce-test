@@ -1,0 +1,36 @@
+<template>
+    <lightning-card>
+        <lightning-layout multiple-rows>
+            <lightning-layout-item size="12" large-device-size="9">
+                <div class="slds-m-left_x-large slds-m-bottom_small" if:true={displayJsonList}>
+                    <lightning-datatable
+                        data={displayJsonList}
+                        columns={columns}
+                        key-field="id"
+                        onrowselection={getSelectedRows}>
+                    </lightning-datatable>
+                </div>
+            </lightning-layout-item>
+            <lightning-layout-item size="12" large-device-size="9">
+                <div class="slds-m-bottom_small">
+                    <lightning-button class="slds-m-left_x-large slds-m-bottom_small" variant="brand" label="Add Debt" onclick={addDebt}></lightning-button>
+                <lightning-button class="slds-m-left_x-small slds-m-bottom_small" variant="brand" label="Remove Debt" onclick={removeDebt}></lightning-button>
+                </div>
+            </lightning-layout-item>
+            <lightning-layout-item size="12" large-device-size="9">
+                <div class="bg-blue slds-m-left_x-large slds-m-bottom_small">
+                    <P style="text-align:left;"> <b>Total : </b>
+                        <span style="float:right;"> <b> ${totalAmount} </b></span>
+                    </P>
+                </div>
+            </lightning-layout-item>
+            <lightning-layout-item size="12" large-device-size="9">
+                <div class="slds-m-left_x-large slds-m-bottom_small">
+                    <P style="text-align:left;"> <b>Total Row Count : {totaDataLength}</b>
+                        <span class="slds-m-left_x-large"> <b> Check Row Count : {selectedRows} </b></span>
+                    </P>
+                </div>
+            </lightning-layout-item>
+        </lightning-layout>
+    </lightning-card>
+</template>
